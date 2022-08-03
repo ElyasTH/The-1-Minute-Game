@@ -13,9 +13,10 @@ public class ObstaclesController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     void Update(){
-        if (isTaken)
+        if (isTaken){
             transform.position = takePosition.position;
-            
+            rb.velocity = Vector2.zero;
+        }
     }
 
     public void Take(){
@@ -31,7 +32,7 @@ public class ObstaclesController : MonoBehaviour
         int sign = 0;
         if (player.GetComponent<CharacterController2D>().isFacingRight()) sign = 1;
         else sign = -1;
-        rb.AddForce(new Vector2(sign*3000f, 2000f));
+        rb.AddForce(new Vector3(sign*3000f, 2000f, 0f));
         // rb.freezeRotation = false;
     }
 
