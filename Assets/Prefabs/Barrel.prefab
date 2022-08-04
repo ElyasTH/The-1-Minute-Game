@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: 3501785267311886295}
   - component: {fileID: 3501785267311886282}
   - component: {fileID: 2448055434354472051}
-  m_Layer: 0
+  - component: {fileID: 4852818371669955948}
+  - component: {fileID: 21525609948991453}
+  - component: {fileID: 4063079621725601827}
+  m_Layer: 8
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,3 +158,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takePosition: {fileID: 0}
   player: {fileID: 4640082437271345724, guid: e9bdafe1eb0cc2a41b297c069ca4eea8, type: 3}
+--- !u!114 &4852818371669955948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501785267311886293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8543059160fdb7428bde383c054a6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToOther: 2
+  damageToSelf: 1
+  selfDamage: 1
+--- !u!114 &21525609948991453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501785267311886293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a950c162268cfa47b7b45f0e3d46596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  damageForceX: 3000
+  damageForceY: 2000
+  downTime: 2
+--- !u!95 &4063079621725601827
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501785267311886293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

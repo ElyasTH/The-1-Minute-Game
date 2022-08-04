@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,7 +31,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
-
+	private bool m_canMove = true;
 	private Animator animator;
 
 	private void Awake()
@@ -78,7 +80,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
+		if ((m_Grounded || m_AirControl) && m_canMove)
 		{
 
 			// If crouching
@@ -146,6 +148,17 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public IEnumerator StopMovingFor(float duration){
+		StopMoving();
+		yield return new WaitForSeconds(duration);
+		m_canMove = true;
+	}
+
+	public void StopMoving(){
+		m_canMove = false;
+		m_Rigidbody2D.velocity = Vector2.zero;
 	}
 
 	public bool isGrounded(){

@@ -7,10 +7,13 @@ public class ObstaclesController : MonoBehaviour
     public Transform takePosition;
     public GameObject player;
     private bool isTaken;
+    public bool isThrown;
     private Rigidbody2D rb;
+    private Damager damager;
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
+        damager = GetComponent<Damager>();
     }
     void Update(){
         if (isTaken){
@@ -28,18 +31,28 @@ public class ObstaclesController : MonoBehaviour
 
     public void Throw(){
         isTaken = false;
+        isThrown = true;
         rb.gravityScale = 2f;
         int sign = 0;
         if (player.GetComponent<CharacterController2D>().isFacingRight()) sign = 1;
         else sign = -1;
         rb.AddForce(new Vector3(sign*3000f, 2000f, 0f));
-        // rb.freezeRotation = false;
+        StartCoroutine(ResetLayer());
     }
 
     void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.layer == 0 && !isTaken){
-            gameObject.layer = 0;
+            isThrown = false;
         }
+
+        var objectToDamage = collision.gameObject.GetComponent<Damageable>();
+        if (isThrown && objectToDamage != null && isThrown){
+            damager.Damage(objectToDamage);
+        } 
     }
 
+    private IEnumerator ResetLayer(){
+        yield return new WaitForSeconds(0.2f);
+        gameObject.layer = 8;
+    }
 }

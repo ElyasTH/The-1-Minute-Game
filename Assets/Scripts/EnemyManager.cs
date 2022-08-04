@@ -9,9 +9,11 @@ public class EnemyManager : MonoBehaviour
     public float speed = 35f;
     private float horizontalMove = 0f;
     private Animator animator;
+    private Damager damager;
 
     void Awake(){
         animator = GetComponent<Animator>();
+        damager = GetComponent<Damager>();
     }
 
     void Update(){
@@ -25,9 +27,11 @@ public class EnemyManager : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
-        var otherRB = col.gameObject.GetComponent<Rigidbody2D>();
-        var otherTag = col.gameObject.tag;
-        if (otherRB != null && otherTag == "Obstacle" && otherRB.velocity.magnitude > 1) Destroy(this.gameObject);
-        else if(otherTag == "Obstacle") animator.SetTrigger("attack");
+        if ((col.gameObject.tag == "Obstacle" && !col.gameObject.GetComponent<ObstaclesController>().isThrown) ||
+            col.gameObject.tag == "Player"){
+            animator.SetTrigger("attack");
+            damager.Damage(col.gameObject.GetComponent<Damageable>());
+            StartCoroutine(controller.StopMovingFor(0.8f));
+        }
     }
 }

@@ -13,9 +13,9 @@ TagManager:
   - Water
   - UI
   - TakenObject
-  - 
-  - 
-  - 
+  - Corpse
+  - Obstacle
+  - Enemy
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: TakenObject
     uniqueID: 1168499249
+    locked: 0
+  - name: Water
+    uniqueID: 2663204325
     locked: 0
