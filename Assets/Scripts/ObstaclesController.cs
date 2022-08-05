@@ -7,6 +7,7 @@ public class ObstaclesController : MonoBehaviour
     public Transform takePosition;
     public GameObject player;
     private bool isTaken;
+    [HideInInspector]
     public bool isThrown;
     private Rigidbody2D rb;
     private Damager damager;
@@ -47,7 +48,7 @@ public class ObstaclesController : MonoBehaviour
 
         var objectToDamage = collision.gameObject.GetComponent<Damageable>();
         if (isThrown && objectToDamage != null && isThrown){
-            damager.Damage(objectToDamage);
+            damager?.Damage(objectToDamage);
         } 
     }
 

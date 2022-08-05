@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Door
+  - CannonBall
+  - Cannon
   layers:
   - Default
   - TransparentFX
@@ -50,4 +53,7 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 2663204325
+    locked: 0
+  - name: Tilemaps
+    uniqueID: 3980736399
     locked: 0

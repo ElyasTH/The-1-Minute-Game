@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 3501785267311886293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.95, y: 0.48, z: -0.06057196}
-  m_LocalScale: {x: 1.6823, y: 1.6823, z: 1.6823}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takePosition: {fileID: 0}
   player: {fileID: 4640082437271345724, guid: e9bdafe1eb0cc2a41b297c069ca4eea8, type: 3}
+  isThrown: 0
 --- !u!114 &4852818371669955948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   damageForceX: 3000
   damageForceY: 2000
   downTime: 2
+  destroyedPrefab: {fileID: 0}
 --- !u!95 &4063079621725601827
 Animator:
   serializedVersion: 4

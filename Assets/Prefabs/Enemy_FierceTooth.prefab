@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8542131014810552317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8542131015400836065}
   - component: {fileID: 3613617378853632596}
   - component: {fileID: 4519760011118083785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_FierceTooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 8542131015400836090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -24.05, y: -1.65, z: 0}
-  m_LocalScale: {x: 1.8574895, y: 1.8574895, z: 1.8574895}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8542131015423511974}
@@ -158,8 +158,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013705264, y: -0.022698155}
-  m_Size: {x: 0.5197711, y: 0.74607766}
+  m_Offset: {x: -0.024397032, y: -0.029825825}
+  m_Size: {x: 0.59342384, y: 0.7175672}
   m_Direction: 0
 --- !u!114 &8542131015400836067
 MonoBehaviour:
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8542131015400836067}
-  speed: 25
+  speed: 8
 --- !u!95 &8542131015400836065
 Animator:
   serializedVersion: 4
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8543059160fdb7428bde383c054a6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToOther: 2
+  damageToOther: 4
   damageToSelf: 1
   selfDamage: 0
 --- !u!114 &4519760011118083785
@@ -251,10 +251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a950c162268cfa47b7b45f0e3d46596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 8
   damageForceX: 4000
   damageForceY: 3000
   downTime: 0.5
+  destroyedPrefab: {fileID: 0}
 --- !u!1 &8542131015423511975
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8542131015423511974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
