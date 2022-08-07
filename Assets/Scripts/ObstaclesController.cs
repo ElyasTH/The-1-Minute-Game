@@ -46,6 +46,7 @@ public class ObstaclesController : MonoBehaviour
             isThrown = false;
         }
 
+        if (gameObject.tag == "CannonBall") return;
         var objectToDamage = collision.gameObject.GetComponent<Damageable>();
         if (isThrown && objectToDamage != null && isThrown){
             damager?.Damage(objectToDamage);
@@ -54,6 +55,7 @@ public class ObstaclesController : MonoBehaviour
 
     private IEnumerator ResetLayer(){
         yield return new WaitForSeconds(0.2f);
-        gameObject.layer = 8;
+        if (gameObject.tag == "Obstacle") gameObject.layer = 8;
+        else gameObject.layer = 11;
     }
 }

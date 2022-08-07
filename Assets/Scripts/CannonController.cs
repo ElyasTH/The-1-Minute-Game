@@ -13,13 +13,20 @@ public class CannonController : MonoBehaviour
     private bool loaded = false;
     private Animator animator;
 
+    public AudioClip shootSound, loadSound;
+    private AudioSource audioSource;
+
+
     void Awake(){
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     void OnCollisionEnter2D(Collision2D col){
         if (col.gameObject.tag == "CannonBall" && col.gameObject != shotBall && !loaded){
             loaded = true;
             Destroy(col.gameObject);
+            audioSource.clip = loadSound;
+            audioSource.Play();
         }
     }
 
@@ -34,5 +41,7 @@ public class CannonController : MonoBehaviour
         animator.SetTrigger("Shoot");
         shotBall.GetComponent<CannonBallContoller>().Shoot();
         loaded = false;
+        audioSource.clip = shootSound;
+        audioSource.Play();
     }
 }

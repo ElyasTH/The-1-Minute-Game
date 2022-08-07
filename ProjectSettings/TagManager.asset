@@ -8,6 +8,9 @@ TagManager:
   - Door
   - CannonBall
   - Cannon
+  - Enemy
+  - UnderWater
+  - HowTo
   layers:
   - Default
   - TransparentFX
@@ -19,8 +22,8 @@ TagManager:
   - Corpse
   - Obstacle
   - Enemy
-  - 
-  - 
+  - Barrier
+  - CannonBall
   - 
   - 
   - 
@@ -56,4 +59,7 @@ TagManager:
     locked: 0
   - name: Tilemaps
     uniqueID: 3980736399
+    locked: 0
+  - name: FrontTrees
+    uniqueID: 635611261
     locked: 0

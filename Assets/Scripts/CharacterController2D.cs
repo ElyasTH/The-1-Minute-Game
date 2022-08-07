@@ -69,6 +69,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump)
 	{
+		if (!m_canMove) return;
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
 		{
@@ -80,7 +81,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		//only control the player if grounded or airControl is turned on
-		if ((m_Grounded || m_AirControl) && m_canMove)
+		if (m_Grounded || m_AirControl)
 		{
 
 			// If crouching
@@ -167,5 +168,9 @@ public class CharacterController2D : MonoBehaviour
 
 	public bool isFacingRight(){
 		return m_FacingRight;
+	}
+
+	public bool canMove(){
+		return m_canMove;
 	}
 }

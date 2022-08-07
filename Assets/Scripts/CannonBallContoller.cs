@@ -11,11 +11,13 @@ public class CannonBallContoller : MonoBehaviour
     private float explosionRadius = 5;
     private Damager damager;
     private bool isShot = false;
+    public GameObject explosionFX;
 
     void Awake(){
         damager = GetComponent<Damager>();
     }
     void Explode(){
+        Instantiate(explosionFX, transform.position, Quaternion.identity);
         inRadius = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
         foreach (Collider2D o in inRadius) 

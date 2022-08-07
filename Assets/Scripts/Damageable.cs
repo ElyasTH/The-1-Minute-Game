@@ -11,11 +11,14 @@ public class Damageable : MonoBehaviour
     private Animator animator;
     private CharacterController2D controller;
     public GameObject destroyedPrefab;
+    public AudioClip damageSound;
+    private AudioSource audioSource;
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController2D>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void GetDamaged(float damage, int damageDirection){
         health -= damage;
@@ -37,6 +40,22 @@ public class Damageable : MonoBehaviour
                 StartCoroutine(controller.StopMovingFor(downTime));
             }
         }
+        if (audioSource != null){
+            audioSource.clip = damageSound;
+            if (gameObject.tag == "Player"){
+                audioSource.pitch = 1.1f;
+                audioSource.volume = 0.4f;
+            }
+            else if (gameObject.tag == "Obstacle"){
+                audioSource.pitch = 1f;
+                audioSource.volume = 0.1f;
+            }
+            else if (gameObject.tag == "Enemy"){
+                audioSource.pitch = 1.3f;
+                audioSource.volume = 0.25f;
+            }
+            audioSource.Play();
+        }
     }
 
     private IEnumerator DestroyCorpse(float duration, int damageDirection){
@@ -50,5 +69,9 @@ public class Damageable : MonoBehaviour
                 }
         }
         Destroy(gameObject);
+    }
+
+    public float GetHealth(){
+        return health;
     }
 }
